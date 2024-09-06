@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Ensure script is run from the scripts/ folder
-if [ "$(basename "$(pwd)")" != "scripts" ]; then
-    echo "Error: This script should be run from the scripts/ folder."
-    exit 1
-fi
-
 # Paths
 CNODE_SCRIPT="cnode.sh"
 ENV_FILE="examples/.env"
