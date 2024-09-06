@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Paths
-CNODE_SCRIPT="cnode.sh"
+CNODE_SCRIPT="scripts/cnode.sh"
 ENV_FILE="examples/.env"
 DOCKER_COMPOSE_FILE="docker-compose.yml"
 
