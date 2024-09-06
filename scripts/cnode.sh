@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Define the Docker Compose file path (adjust if your file is in a different directory)
 COMPOSE_FILE_PATH="$HOME/relay/docker-compose.yml"
