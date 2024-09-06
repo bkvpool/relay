@@ -5,7 +5,7 @@ Docker compose file to manage relay node
 
 Run the comman below in your shell
 ```
-curl -s https://raw.githubusercontent.com/bkvpool/relay/main/scripts/setup_node.sh | sh
+curl -s https://raw.githubusercontent.com/bkvpool/relay/main/scripts/setup_node.sh | bash
 ```
 
 Add scripts folder to PATH in your profile
