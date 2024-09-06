@@ -1,0 +1,21 @@
+services:
+  cardano-node:
+    image: ghcr.io/blinklabs-io/cardano-node:latest # The Docker image for Cardano node from Blinklabs
+    container_name: cardano-node # Name the container for easier management
+    command: run # Add the "run" command to be executed on container start
+    environment:
+      - RESTORE_SNAPSHOT=false
+      - CARDANO_BLOCK_PRODUCER=false # Relay node
+      - CARDANO_CONFIG_BASE=/opt/cardano/config/mainnet # Base directory for configuration files inside the container
+      - CARDANO_DATABASE_PATH=/opt/cardano/data # Directory for ledger database files inside the container
+      - CARDANO_SOCKET_PATH=/opt/cardano/ipc/socket # Path for the UNIX socket used by client software inside the container
+      - CARDANO_TOPOLOGY=/opt/cardano/config/mainnet/topology.json # Path to the Cardano node topology file inside the container
+      - CARDANO_CONFIG=/opt/cardano/config/mainnet/config.json # Path to the Cardano node configuration file inside the container
+    volumes:
+      - ${CNODE_CONF_BASE}:/opt/cardano/config # Mount the host config directory to the container
+      - ${CNODE_DATA}:/opt/cardano/data # Mount the host data directory to the container
+      - ${CNODE_IPC}:/opt/cardano/ipc # Mount the host IPC directory to the container
+    ports:
+      - "3001:3001" # Map port 3001 on the host to port 3001 on the container for external access
+      - "3002:12798" # Publish Prometheus metrics on port 3002 for monitoring
+    restart: unless-stopped # Restart the container unless it is explicitly stopped
