@@ -80,7 +80,7 @@ CONTAINER_NAME=${CONTAINER_NAME:-cardano-node-relay}
 echo "Copying and updating the cnode.sh script to $CNODE_SCRIPT_FOLDER..."
 cp $CNODE_SCRIPT $CNODE_SCRIPT_FOLDER/
 
-sed -i "s|COMPOSE_FILE_PATH=.*|COMPOSE_FILE_PATH=$(pwd)|" $CNODE_SCRIPT_FOLDER/cnode.sh
+sed -i "s|COMPOSE_FILE_PATH=.*|COMPOSE_FILE_PATH=$DEFAULT_BASE_FOLDER|" $CNODE_SCRIPT_FOLDER/cnode.sh
 sed -i "s|CONTAINER_NAME=.*|CONTAINER_NAME=$CONTAINER_NAME|" $CNODE_SCRIPT_FOLDER/cnode.sh
 
 # Copy and update the .env file
